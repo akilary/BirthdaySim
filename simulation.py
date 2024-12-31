@@ -6,6 +6,7 @@ start_year = date(2001, 1, 1)
 
 
 def simulate(num_birt, num_sim: int = 100000) -> tuple:
+    """"""
     duplicate = 0
     for i in range(num_sim):
         if i % 10000 == 0:
