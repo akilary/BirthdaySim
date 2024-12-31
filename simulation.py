@@ -6,11 +6,11 @@ start_year = date(2001, 1, 1)
 
 
 def simulate(num_birt, num_sim: int = 100000) -> tuple:
-    """"""
+    """Проводит симуляцию совпадения дней рождения для указанного числа людей."""
     duplicate = 0
     for i in range(num_sim):
         if i % 10000 == 0:
-            print(f"\rВыполняется симуляция №{i}...", end="")
+            print(f"\rИдёт симуляция №{i} из {num_sim}...", end="")
         birthdays = create_birthdays(num_birt)
         if get_match(birthdays):
             duplicate += 1
@@ -19,7 +19,7 @@ def simulate(num_birt, num_sim: int = 100000) -> tuple:
 
 
 def create_birthdays(num_birt: int) -> list[date]:
-    """Генерация списка дней рождения для num_people человек."""
+    """Генерирует список случайных дней рождения для заданного числа людей."""
     birthdays = []
     for i in range(num_birt):
         random_day = timedelta(randint(1, 365))
@@ -28,7 +28,7 @@ def create_birthdays(num_birt: int) -> list[date]:
 
 
 def get_match(birthdays: list[date]) -> date | None:
-    """Возвращает дату первого совпадающего дня рождения, если он есть."""
+    """Проверяет наличие совпадающих дней рождения в списке."""
     if len(birthdays) == len(set(birthdays)):
         return None
 
